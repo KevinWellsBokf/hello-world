@@ -31,10 +31,6 @@ jobs:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
 
       - run:
-          name: Run Tests
-          command: ./gradlew lint test
-
-      - run:
           name: Clean
           command: ./gradlew clean
 
@@ -53,6 +49,14 @@ jobs:
       - store_artifacts:
           path: app/build/reports
           destination: reports
+
+      - store_artifacts:
+          path: app/build/outputs/apk/debug/app-debug.apk
+          destination: apks
+
+      - store_artifacts:
+          path: app/build/outputs/apk/release/app-release.apk
+          destination: apks
 
       - store_test_results:
           path: app/build/test-results
