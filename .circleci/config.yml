@@ -52,11 +52,19 @@ jobs:
 
       - store_artifacts:
           path: app/build/outputs/apk/debug/app-debug.apk
-          destination: apks
+          destination: apks/debug/app-debug.apk
+
+      - store_artifacts:
+          path: app/build/outputs/apk/debug/mapping.txt
+          destination: apks/debug/mapping.txt
 
       - store_artifacts:
           path: app/build/outputs/apk/release/app-release.apk
-          destination: apks
+          destination: apks/release/app-release.apk
+
+      - store_artifacts:
+          path: app/build/outputs/apk/release/mapping.txt
+          destination: apks/release/mapping.txt
 
       - store_test_results:
           path: app/build/test-results
